@@ -1,6 +1,70 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: "Inter", sans-serif;
+  /* background-color: #A8C7AF; */
 }
+
+/*registor*/
+input {
+  border: 2px solid #72927a;
+  background-color: white;
+  border-radius: 5px;
+  height: 25px;
+  width: 300px;
+}
+
+.reg {
+  padding-left: 5em;
+  padding-top: 5em;
+  color: #000;
+}
+
+.reg h1 {
+  padding-bottom: 0.5rem;
+}
+
+.reg button {
+  margin-top: 2em;
+  background-color: #F1DEDC;
+  border: 1px solid #877a79;
+  border-radius: 5px ;
+  color: #877a79;
+  width: 190px;
+  height: 45px;
+}
+
+/*home page*/
+.homeAuthor h1 {
+  padding-left: 10rem;
+  padding-top: 2rem;
+}
+
+.homeCard {
+  width: 200px;
+  max-width: 290px;
+  padding-left: 50px;
+}
+
+.authorName1 {
+  font-size: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 20px;
+}
+
+.otherInformation {
+  text-align: left;
+  font-size: 12px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/*Details Author*/
+.AUTHauthorName {
+  font-size: 2rem;
+}
+
+
+
+
