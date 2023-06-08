@@ -5,7 +5,7 @@
 
 /*registor*/
 input {
-  border: 2px solid #72927a;
+  border: 2px solid #ffffff;
   background-color: white;
   border-radius: 5px;
   height: 25px;
@@ -65,6 +65,14 @@ input {
   font-size: 2rem;
 }
 
-
+.submitName{
+  margin-top: 2em;
+  background-color: #F1DEDC;
+  border: 1px solid #c4b6b5;
+  border-radius: 5px ;
+  color: #a79492;
+  width: 190px;
+  height: 45px;
+}
 
 

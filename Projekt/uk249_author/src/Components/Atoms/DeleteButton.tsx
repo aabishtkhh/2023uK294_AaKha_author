@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import DeleteOutlineTwoToneIcon from '@mui/icons-material/DeleteOutlineTwoTone';
 import Button from "@mui/material/Button";
-import AuthorService from "../../Service/AuthorService";
+import AuthorService from "../Service/AuthorService";
 
 interface DeleteButtonProps {
   authorId: number;

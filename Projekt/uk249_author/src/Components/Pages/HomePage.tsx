@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Postbutton from "../Atoms/implement/PostButton";
+import Postbutton from "../Atoms/PostButton";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import CardButton from "../Molecules/CardButtons";
 import { AuProp } from "../Service/AuthorProp";
-import LogOutButton from "../Atoms/done/LogOutButton";
+import LogOutButton from "../Atoms/LogOutButton";
 import AuthorService from "../Service/AuthorService";
 
 const HomePage = () => {
@@ -28,6 +28,7 @@ const HomePage = () => {
 
   return (
     <>
+    {}
       <div className="homeAuthor">
         <Box>
           <Postbutton />

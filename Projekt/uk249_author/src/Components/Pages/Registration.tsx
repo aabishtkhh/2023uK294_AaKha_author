@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik, Form, ErrorMessage, Field } from "formik";
 import { useNavigate } from "react-router/";
-import AuthService from "../Service/AuthService";
+import UserService from "../Service/UserService";
 
 const Registration = () => {
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ const Registration = () => {
             return errors;
           }}
           onSubmit={(values, { setSubmitting }) => {
-            AuthService()
+            UserService()
               .logIn(values.email, values.password)
               .then((response) => {
                 localStorage.setItem("accessToken", response["accessToken"])

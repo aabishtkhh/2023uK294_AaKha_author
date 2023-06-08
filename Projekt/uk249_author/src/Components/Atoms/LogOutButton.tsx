@@ -11,12 +11,12 @@ function LogOutButton() {
   };
 
   if (click) {
-    return <Link to={`/sign-up`} />;
+    return <Link to={`/`} />;
   }
 
   return (
     <div id="click" onClick={clickedButton}>
-      <Link to={"/sign-up"} style={{ textDecoration: "none" }}>
+      <Link to={"/"} style={{ textDecoration: "none" }}>
         <Button
           sx={{
             backgroundColor: "#ABC798",

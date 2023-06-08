@@ -3,9 +3,9 @@ import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { AuProp } from "../../Service/AuthorProp";
-import ReturnPageButton from "../../Atoms/done/ReturnPageButton";
-import PutButton from "../../Atoms/implement/PutButton";
-import DeleteButton from "../../Atoms/implement/DeleteButton";
+import ReturnPageButton from "../../Atoms/ReturnPageButton";
+import PutButton from "../../Atoms/PutButton";
+import DeleteButton from "../../Atoms/DeleteButton";
 import AuthorService from "../../Service/AuthorService";
 import { useParams } from "react-router";
 
@@ -36,7 +36,6 @@ const DetailsAuth = () => {
               height: 500,
               marginY: 12,
               textAlign: "left",
-              backgroundColor: "rgba(119, 119, 119, 0.58)",
             }}
           >
             <Typography variant="h6">

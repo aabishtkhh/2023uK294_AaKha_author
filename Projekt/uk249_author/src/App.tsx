@@ -12,7 +12,7 @@ function App() {
     <Routes>
       <Route path="/author" element={<HomePage />} />
       <Route path="/author/:id" element={<DetailsAuth/>} />
-      <Route path="/sign-up" element={<Registration />} />
+      <Route path="/" element={<Registration />} />
       <Route path="/author/create-author/" element={<PostAuthor/>} /> 
       <Route path="/author/update-author/:id" element={<PutAuthor />} />
     </Routes>

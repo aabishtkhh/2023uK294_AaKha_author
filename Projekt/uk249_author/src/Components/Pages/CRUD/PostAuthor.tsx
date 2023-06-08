@@ -1,5 +1,5 @@
 import Card from "@mui/material/Card";
-import ReturnPageButton from "../../Atoms/done/ReturnPageButton";
+import ReturnPageButton from "../../Atoms/ReturnPageButton";
 import { Field, ErrorMessage, Formik, Form } from "formik";
 import AuthorService from "../../Service/AuthorService";
 import { useNavigate } from "react-router";
@@ -14,10 +14,33 @@ const PostAuthor = () => {
           author_name: "",
           birth_date: "",
         }}
+
+          /*
+          Validation
+          */
+          validate={(values) => {
+            const errors: { author_name?: string; birth_date?: string } = {};
+          
+            if (!values.author_name) {
+              errors.author_name = "Required";
+            }
+            if (!values.birth_date) {
+              errors.birth_date = "Required";             
+            }
+
+            if (isNaN(Date.parse(values.birth_date)) //NAN = not a number 
+            ) {
+              errors.birth_date = "Invalid Birthdate";             
+            }
+            
+            return errors;
+          }}
+
+
         onSubmit={(values, { setSubmitting }) => {
           console.log(values)
           
-          AuthorService.postAuthor(values).then(response => (navigate(`/author/${response.id}`,{replace:true} ))).catch(); //not sure if it works
+          AuthorService.postAuthor(values).then(response => (navigate(`/author/${response.id}`,{replace:true} ))).catch(); 
         }}
       >
         {({ isSubmitting, isValid }) => (
@@ -31,6 +54,7 @@ const PostAuthor = () => {
                 height: 500,
                 marginY: 12,
                 textAlign: "left",
+                backgroundColor: "#FFE4FA",
               }}
             >
                 <label htmlFor="author_name">
@@ -50,7 +74,7 @@ const PostAuthor = () => {
                 <Field type="birth_date" name="birth_date" />
                 <ErrorMessage name="birth_date" component="div" />
                 <br />
-                <button type="submit" disabled={isSubmitting || !isValid}>
+                <button className="submitName" type="submit" disabled={isSubmitting || !isValid}>
                   Submit
                 </button>
             </Card>

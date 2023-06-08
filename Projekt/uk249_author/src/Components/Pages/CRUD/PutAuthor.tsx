@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
-import ReturnPageButton from "../../Atoms/done/ReturnPageButton";
+import ReturnPageButton from "../../Atoms/ReturnPageButton";
 import { AuProp } from "../../Service/AuthorProp";
 import { Field, ErrorMessage, Formik, Form } from "formik";
 import AuthorService from "../../Service/AuthorService";
@@ -46,6 +46,11 @@ const PutAuthor = () => {
               errors.birth_date = "Required";             
             }
 
+            if (isNaN(Date.parse(values.birth_date)) //NAN = not a number 
+            ) {
+              errors.birth_date = "Invalid Birthdate";             
+            }
+
             return errors;
           }}
 
@@ -53,7 +58,8 @@ const PutAuthor = () => {
             console.log(values);
             if (!author.id) {
               return;
-            }
+            } 
+
             AuthorService.putAuthor(Number(author.id), values).then(() => navigate("/author")).catch();
           }}
         >
@@ -69,6 +75,7 @@ const PutAuthor = () => {
                   height: 500,
                   marginY: 12,
                   textAlign: "left",
+                  backgroundColor: "#ABC798",
                 }}
               >
                 <Typography>
@@ -93,7 +100,7 @@ const PutAuthor = () => {
                 <Field type="birth_date" name="birth_date" />
                 <ErrorMessage name="birth_date" component="div" />
                 <br />
-                <button type="submit" disabled={isSubmitting || !isValid}>
+                <button className="submitName" type="submit" disabled={isSubmitting || !isValid}>
                   Submit
                 </button>
               </Card>
