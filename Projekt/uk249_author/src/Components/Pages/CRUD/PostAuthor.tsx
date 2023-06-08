@@ -24,6 +24,7 @@ const PostAuthor = () => {
             if (!values.author_name) {
               errors.author_name = "Required";
             }
+            
             if (!values.birth_date) {
               errors.birth_date = "Required";             
             }
@@ -32,7 +33,7 @@ const PostAuthor = () => {
             ) {
               errors.birth_date = "Invalid Birthdate";             
             }
-            
+
             return errors;
           }}
 
