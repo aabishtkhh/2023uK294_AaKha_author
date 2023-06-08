@@ -1,4 +1,3 @@
-import React from "react";
 import { AuProp } from "./AuthorProp";
 
 const authorData: AuProp[] = [

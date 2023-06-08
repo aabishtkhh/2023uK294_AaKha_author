@@ -1,8 +1,8 @@
-import IconButton from "@mui/material/IconButton";
+import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";
 import { Link } from "react-router-dom";
-// import PostAuthor from "../Pages/Methods/PostAuthor";
 import { useState } from "react";
+
 
 function PostButton() {
   const [click, setClick] = useState(false);
@@ -12,26 +12,28 @@ function PostButton() {
   };
 
   if (click) {
-    return <Link to="/author" />;
+    return <Link to={`/author/create-author/`} />;
   }
 
   return (
     <div id="click" onClick={clickedButton}>
-      <Link to="/author" style={{ textDecoration: "none" }}>
-        <IconButton
+      <Link to={"/author/create-author/"} style={{ textDecoration: "none" }}>
+
+        <Button
           sx={{
             backgroundColor: "#FFC4EB",
-            borderRadius: "50%",
+            borderRadius: "10%",
             position: "absolute",
-            left: "20px",
-            top: "20px",
+            left: "70px",
+            top: "25px",
             "&:hover": {
               backgroundColor: "#C579AB", 
             },
+            animation: 0.7,
           }}
         >
           <AddIcon sx={{ fontSize: 40, color: "black" }} />
-        </IconButton>
+        </Button>
       </Link>
     </div>
   );

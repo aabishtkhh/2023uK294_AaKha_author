@@ -1,30 +1,20 @@
-import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 // Pages:
 import HomePage from "./Components/Pages/HomePage";
-import DetailsAuth from "./Components/Pages/DetailsAuth";
+import DetailsAuth from "./Components/Pages/CRUD/GetAuthor";
 import Registration from "./Components/Pages/Registration";
-import AuthorInformation from "./Components/Service/AuthorInformtion";
-import { AuProp } from "./Components/Service/AuthorProp";
+import PostAuthor from "./Components/Pages/CRUD/PostAuthor";
+import PutAuthor from "./Components/Pages/CRUD/PutAuthor";
 
 function App() {
 
-  const [authors, setAuthors] = useState<AuProp[]>([]); //for DetailsAuth -> Json Array
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const authorData = await AuthorInformation();
-      setAuthors(authorData);
-    };
-
-    fetchData();
-  }, []);
-  
   return (
     <Routes>
       <Route path="/author" element={<HomePage />} />
-      <Route path="/author/:id" element={<DetailsAuth authors={authors} />} />
+      <Route path="/author/:id" element={<DetailsAuth/>} />
       <Route path="/sign-up" element={<Registration />} />
+      <Route path="/author/create-author/" element={<PostAuthor/>} /> 
+      <Route path="/author/update-author/:id" element={<PutAuthor />} />
     </Routes>
   );
 }

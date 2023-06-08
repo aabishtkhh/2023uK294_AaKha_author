@@ -1,41 +1,46 @@
 //CRUD Operationen:
-import { AxiosInstance } from "axios";
-import { defaultAxiosInstance } from "./Api";
-// import AuthorInformtion from "./AuthorInformtion";
+import { defaultAxiosInstance as api } from "./Api";
+import { AuProp } from "./AuthorProp";
 
+const AuthorService = { 
 
-// WHAT WE NEED:
-// GET    /posts
-// GET    /posts/1
-// POST   /posts
-// PUT    /posts/1
-// DELETE /posts/1
+  /**
+   * in postman + website
+   * 
+   * getlimitedAuthors limited json array to 20 objects
+   * will  be on our main page
+   */
 
-const AuthorService = (api: AxiosInstance = defaultAxiosInstance) => ({
-
-  getAuthor : async () => {
-    const data = await api.get("");
-    return data["data"][0]["url"];
+  getlimitedAuthors : async () => { 
+    const data = await api.get(`/author?_limit=20`);
+    return data["data"];
   },
 
-
-  postAuthor : async () => {
-    const data = await api.post("search"); //on click button -> postButton
-    return data["data"][0]["url"];
+  getAllAuthors : async () => { 
+    const data = await api.get(`/author`);
+    return data["data"];
   },
 
+  getAuthorByID : async (authorId : number) => {
+    const data = await api.get(`/author/${authorId}`);
+    return data["data"];
+  },
+
+  postAuthor : async (author: AuProp) => {  
+    const data = await api.post("author", author); 
+    return data["data"];
+  },
+
+  putAuthor : async (authorId: number, author: AuProp) => {
+    const data = await api.put(`/author/${authorId}`, author); 
+    return data["data"];
+  },
   
-  putAuthor : async () => {
-    const data = await api.put("search"); //on click button 
-    return data["data"][0]["url"];
-  },
+  delAuthor : async (authorId : number) => {
+    const response = await api.delete(`/author/${authorId}`);
+    return response["data"];
+  }
 
-  
-  delAuthor : async () => {
-    const data = await api.delete("search"); //on click button 
-    return data["data"][0]["url"];
-  },
-
-});
+};
 
 export default AuthorService;

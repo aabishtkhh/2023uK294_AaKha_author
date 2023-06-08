@@ -1,7 +1,7 @@
 import React from "react";
 
 export type AuProp = {
-    id: number;
+    id?: number;
     author_name: string;    
     birth_date : string; // date is having problems due to date itself not having a type
 }
